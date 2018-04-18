@@ -1,45 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>loops</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" />
-    <script>
-
-        var auto1 = {
-            Data: ['2017-07-06 19:59:45'],
-            vn: ['LRS111'],
-            metrai: [100000],
-            sekundes: [3600],         
-        }
-
-        document.getElementById('auto1').innerHTML = 5 + 6;
-        // console.log (automobilis.sekundes);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>    
     
-    
-    </script>
-    <style>td {border: solid red 1px; width: 33vw; height: 40px;}</style>
 </head>
 <body>
-    <table>
-        <thead></thead>
-        <tbody>
-            <tr id="auto1">
-                <td></td>
-                <td></td>
-                <td></td>
+    <h1>Lentele</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Data</td>
+                <td>Numeris</td>
+                <td>Atstumas</td>
+                <td>Laikas</td>
+                <td>Greitis</td>
             </tr>
+        </thead>
+        <tbody>
+           
         </tbody>
     </table>
-    <!-- <script>
-            document.getElementById('auto1').innerHTML = 5 + 6;
-    </script> -->
-    
+
+    <script>
+        var autos = [
+            ['2018-01-01', 'AAA111', 100000, 3600], 
+            ['2018-01-02', 'AAA222', 100000, 3600],
+            ['2018-01-03', 'AAA333', 100000, 3600],
+            ['2018-01-04', 'AAA444', 100000, 3600],
+            ['2018-01-05', 'AAA555', 100000, 3600],
+            ['2018-01-06', 'AAA666', 100000, 3600],
+            ['2018-01-07', 'AAA777', 100000, 3600]
+        ];
+        var tekstas = '';
+        for (i = 0; i < autos.length; i++) {
+            if (!autos[i][3]) {
+                continue;
+            }
+            tekstas += '<tr>';
+
+            for (j = 0; j < autos[i].length; j++) {
+                tekstas += stulpelis(autos[i][j]); 
+            }   
+
+            tekstas += stulpelis(autos[i][2] / autos[i][3] * 3.6) + '</tr>';
+        }
+        document.querySelector('tbody').innerHTML = tekstas;
+
+        function stulpelis(reiksme) {
+            var td = '<td>' + reiksme + '</td>';
+            return td;
+        }
+    </script>
 </body>
 </html>
-
-<!-- kilometrai per valanda
-valstybiniai numeriai
-data -->
