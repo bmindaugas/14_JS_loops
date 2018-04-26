@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Auto</title>    
+    <title>index2</title>    
     
 </head>
 <body>
@@ -20,12 +20,33 @@
             </tr>
         </thead>
         <tbody>
-           
         </tbody>
     </table>
 
     <script>
-    
+       var autos = [
+           ['2018-01-01', 'AAA000', 100000, 3600],
+           ['2018-01-02', 'AAA001', 100000, 3600],
+           ['2018-01-03', 'AAA002', 100000, 3600],
+           ['2018-01-04', 'AAA003', 100000, 3600]
+       ];
+       var tekstas = '';
+        for( i = 0; i < autos.length; i++) { 
+            if (!autos [i][3]) {
+                continue;
+            }
+            tekstas += '<tr>';
+        for (j = 0; j < autos[i].length; j++) {
+            tekstas += stulpelis(autos[i][j]);
+        }
+        tekstas +=stulpelis(autos[i][2] / autos[i][3] * 3.6) + '</tr>';
+    }
+       document.querySelector('tbody').innerHTML = tekstas;
+        function stulpelis(reiksme){
+            var td = "<td>" + reiksme + '</td>';
+            return td;
+        }
+
     </script>
 </body>
 </html>
